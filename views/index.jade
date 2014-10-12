@@ -1,0 +1,40 @@
+html
+    head
+        title DotViz
+        link(href="style.css",rel="stylesheet",type="text/css")
+        script(src="https://code.jquery.com/jquery-2.1.1.js",type="text/javascript")
+    body
+        .input
+            p enter graph in dot format
+            textarea.indent.source(cols=80,rows=10,placeholder="digraph {\n  a -> b -> c\n}")
+        .output
+            p see rendered graph here
+            div.indent.graph
+        script.
+
+            var inflight = false;
+            var sent = ''
+
+            function render(result, status, xhr) {
+                $('.graph').html(result.graph);
+                inflight = false;
+            }
+
+            function submit(send) {
+                $.ajax({
+                    url: '/graph',
+                    type: 'post',
+                    success: render,
+                    data: {source: send}
+                })          
+            }
+
+            function keystroke(e){
+                if(!inflight && sent!=$(this).val()) {
+                    inflight = true;
+                    sent = $(this).val();
+                    submit(sent);
+                }
+            }
+
+            $('.source').keyup(keystroke)

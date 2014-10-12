@@ -1,0 +1,13 @@
+{
+  "name": "dotviz",
+  "description": "dot to svg service",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "4.x",
+    "jade": "^1.7.0",
+    "serve-index": "^1.4.0",
+    "serve-static": "^1.6.4"
+  }
+}

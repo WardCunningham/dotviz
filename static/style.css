@@ -1,0 +1,21 @@
+body {
+	background-color: #eee;
+}
+
+textarea.source {
+	padding: 10px;
+}
+
+.graph {
+	border-color: #f00;
+	border-width: 10px;	
+}
+
+svg {
+	background-color: #fff;
+	padding: 20px;
+}
+
+.indent {
+	margin-left:20px;
+}
